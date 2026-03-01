@@ -49,7 +49,7 @@ Part 8 — Robotics Projects        (notebooks 23–25)
 | # | File | Topic | Time |
 |---|---|---|---|
 | 00 | `part_0_getting_started/00_welcome_and_roadmap.ipynb` | What is 6D pose, course map, real-world problems | 20 min |
-| 01 | `part_0_getting_started/01_environment_setup.ipynb` | venv, conda, pip, CUDA, VSCode, Colab | 30 min |
+| 01 | `part_0_getting_started/01_environment_setup.ipynb` | venv, conda, pip, CUDA, VSCode, Colab, Docker intro | 30 min |
 | 02 | `part_1_tools/02_jupyter_notebooks_101.ipynb` | Cells, kernel, shortcuts, magic commands | 25 min |
 | 03 | `part_1_tools/03_numpy_for_cv.ipynb` | Arrays, shapes, dtypes, broadcasting, matplotlib | 45 min |
 | 04 | `part_2_opencv_foundations/04_intro_to_opencv.ipynb` | Install, BGR/RGB, imread, VideoCapture, drawing | 40 min |
@@ -67,7 +67,7 @@ Part 8 — Robotics Projects        (notebooks 23–25)
 | 16 | `part_6_stereo_vision/16_stereo_theory.ipynb` | Epipolar geometry, disparity, depth, Q matrix | 55 min |
 | 17 | `part_6_stereo_vision/17_stereo_calibration.ipynb` | stereoCalibrate, rectify, remap | 50 min |
 | 18 | `part_7_deep_learning_6d_pose/18_intro_dl_for_cv.ipynb` | Neural networks, inference, pretrained models | 40 min |
-| 19 | `part_7_deep_learning_6d_pose/19_mediapipe_objectron.ipynb` | Objectron, 3D bounding boxes, webcam | 45 min |
+| 19 | `part_7_deep_learning_6d_pose/19_mediapipe_objectron.ipynb` | Objectron, 3D bounding boxes, webcam — ⚠️ **deprecated API**, requires `mediapipe==0.9.3` | 45 min |
 | 20 | `part_7_deep_learning_6d_pose/20_efficientpose.ipynb` | EfficientNet backbone, rotation/translation heads | 60 min |
 | 21 | `part_7_deep_learning_6d_pose/21_foundationpose_freeze.ipynb` | Foundation models, RGB-D, zero-shot | 55 min |
 | 22 | `part_7_deep_learning_6d_pose/22_megapose_visp.ipynb` | CAD prep, ViSP integration | 60 min |
