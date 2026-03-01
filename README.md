@@ -134,6 +134,22 @@ For FoundationPose (NB 21), Docker is optional — a conda environment works too
 
 ---
 
+## Pretrained Models
+
+Each Part 7 notebook uses a pretrained model. Here's exactly what you need to do (or not do) for each:
+
+| Notebook | Model | Action required |
+|---|---|---|
+| NB 19 — MediaPipe Objectron | MediaPipe models | **Nothing** — downloaded automatically on first `pip install mediapipe` run |
+| NB 20 — EfficientPose | LineMOD weights (`.h5`) | **Manual download** from [EfficientPose GitHub Releases](https://github.com/ybkscht/EfficientPose/releases) — see NB 20 Section 3 for step-by-step instructions |
+| NB 21 — FoundationPose | FoundationPose weights | **Nothing** — included inside the Docker image (`docker pull nvcr.io/nvidia/foundationpose:latest`) |
+| NB 21 — FreeZe | DINO foundation weights | **Nothing** — auto-downloaded on first run |
+| NB 22 — MegaPose + ViSP | MegaPose weights | **One command** — `python -m happypose.toolbox.utils.download --megapose-models` (run after pip install) |
+
+> **Summary for beginners:** You only need to manually download something for **NB 20 (EfficientPose)**. Everything else is handled automatically. NB 20 Section 3 walks you through it step by step.
+
+---
+
 ## Assets
 
 ```
