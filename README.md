@@ -112,6 +112,26 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
+### Option C — Docker (required for NB 20 · EfficientPose only)
+
+Most of the course runs fine with Options A or B. The one exception is **Notebook 20 (EfficientPose)**, which requires TensorFlow 1.14 — an old version that conflicts with modern Python environments. Docker is the cleanest solution.
+
+> **New to Docker?** NB 01 introduces it briefly, and NB 20 has a full plain-English explainer with step-by-step install instructions. You don't need to set it up until you reach NB 20.
+
+```bash
+# Install Docker Desktop first: https://www.docker.com/products/docker-desktop
+# Then pull the TF1 GPU image and run EfficientPose inside it:
+
+docker pull tensorflow/tensorflow:1.14.0-gpu-py3
+
+docker run --gpus all -it \
+    -v $(pwd):/workspace \
+    tensorflow/tensorflow:1.14.0-gpu-py3 \
+    /bin/bash
+```
+
+For FoundationPose (NB 21), Docker is optional — a conda environment works too. See NB 21 for details.
+
 ---
 
 ## Assets
