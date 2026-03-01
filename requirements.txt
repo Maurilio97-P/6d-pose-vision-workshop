@@ -1,0 +1,34 @@
+# 6D Pose Vision Workshop — Python Requirements
+# Part 1 baseline (covers notebooks 00–05)
+# Install with:  pip install -r requirements.txt
+
+# ── Jupyter ────────────────────────────────────────────────────────────────────
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+notebook>=7.0.0
+ipykernel>=6.0.0
+
+# ── Core scientific stack ──────────────────────────────────────────────────────
+numpy>=1.24.0
+matplotlib>=3.7.0
+Pillow>=9.5.0
+
+# ── OpenCV (CPU build — sufficient for Parts 1–6) ─────────────────────────────
+# For GPU support see notebook 01 (environment_setup) and video notes 8
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0   # required for ArUco, SIFT, etc.
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+scipy>=1.10.0
+tqdm>=4.65.0
+
+# ── Deep learning (Parts 7–8 only — install separately if not needed) ─────────
+# torch>=2.0.0            # uncomment for Part 7
+# torchvision>=0.15.0     # uncomment for Part 7
+# mediapipe>=0.10.0       # uncomment for notebook 19
+# tensorflow>=2.12.0      # uncomment for notebook 20 (EfficientPose)
+
+# ── Note on GPU OpenCV ─────────────────────────────────────────────────────────
+# The opencv-python wheel above is CPU-only.
+# For a CUDA-enabled build, follow the instructions in notebook 01 or video note 8.
+# A CUDA build requires: CMake, CUDA Toolkit, cuDNN, and building from source.
