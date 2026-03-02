@@ -30,7 +30,19 @@ Watch these **before** Section 2 (venv vs conda) — they show Anaconda and cond
 ## Part 1 — Tools
 
 ### NB 02 · Jupyter Notebooks 101
-> No specific video. If Jupyter is new to you, search: *"Jupyter Notebook beginner tutorial"* — any 10-min intro will do.
+Watch one or more of these **before** the notebook — they show Jupyter in action so the interface isn't new when you start running cells:
+
+1. **Jupyter Notebook in 10 Minutes** *(fastest general intro)*
+   https://www.youtube.com/watch?v=H9Iu49E6Mxs
+   *~10 min — cells, modes, shortcuts, kernel — everything you need to get started*
+
+2. **Getting Started with Jupyter Notebooks in VS Code** *(if you're running locally in VS Code)*
+   https://www.youtube.com/watch?v=suAkMeWJ1yE
+   *~15 min — kernel selection, IntelliSense, variable explorer, debugger — major upgrade over browser Jupyter*
+
+3. **Cómo usar Jupyter Notebook y qué es JupyterLab** *(Spanish)*
+   https://www.youtube.com/watch?v=CwbMaSkKDZg
+   *~12 min — covers the Notebook vs JupyterLab distinction, cells, markdown, kernels — in Spanish*
 
 ### NB 03 · NumPy for CV
 > No specific video. The notebook is self-contained.
@@ -196,6 +208,9 @@ Watch **both** — they cover the two methods in this notebook:
 |-------|-----|-------------|
 | Getting started with Anaconda and Python on Windows | https://www.youtube.com/watch?v=4DQGBQMvwZo | NB 01 |
 | Set up Conda virtual environment for data science projects | https://www.youtube.com/watch?v=gVfTT8o9PyQ | NB 01 |
+| Jupyter Notebook in 10 Minutes | https://www.youtube.com/watch?v=H9Iu49E6Mxs | NB 02 |
+| Getting Started with Jupyter Notebooks in VS Code | https://www.youtube.com/watch?v=suAkMeWJ1yE | NB 02 |
+| Cómo usar Jupyter Notebook y qué es JupyterLab (Spanish) | https://www.youtube.com/watch?v=CwbMaSkKDZg | NB 02 |
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |

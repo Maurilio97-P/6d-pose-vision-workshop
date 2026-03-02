@@ -166,7 +166,7 @@ assets/
 
 ## Grounded in Real Video Notes
 
-This course is built on 17 curated video notes covering real implementations. Each notebook has recommended videos to watch first — see **[VIDEO_COMPANION.md](VIDEO_COMPANION.md)** for the full list with links.
+This course is built on 20 curated video notes covering real implementations. Each notebook has recommended videos to watch first — see **[VIDEO_COMPANION.md](VIDEO_COMPANION.md)** for the full list with links.
 
 Topics covered across the videos:
 
