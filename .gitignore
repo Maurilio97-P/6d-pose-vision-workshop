@@ -30,3 +30,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Claude Code (local AI assistant config — not course content)
+.claude/
