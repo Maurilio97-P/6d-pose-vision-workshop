@@ -45,7 +45,23 @@ Watch one or more of these **before** the notebook — they show Jupyter in acti
    *~12 min — covers the Notebook vs JupyterLab distinction, cells, markdown, kernels — in Spanish*
 
 ### NB 03 · NumPy for CV
-> No specific video. The notebook is self-contained.
+Watch VN21 and VN22 **before** the notebook — they build the mental model (arrays as numbers, images as arrays) that the whole notebook depends on. VN23 and VN24 are short orientation videos worth watching if you're wondering where NumPy fits relative to the rest of the Python ecosystem:
+
+1. **What is NumPy and Why?** *(why lists aren't enough, vectorized operations, ndarray)*
+   https://www.youtube.com/watch?v=SqhVpJSHuyI
+   *~10 min — explains why NumPy exists and what makes it fast*
+
+2. **NumPy for Images** *(images as 3D arrays, slicing channels, histograms)*
+   https://www.youtube.com/watch?v=7V909wyeOQY
+   *~15 min — the most directly relevant video to this notebook; watch this one above all*
+
+3. **NumPy vs Pandas** *(when to use each — Pandas is built on NumPy)*
+   https://www.youtube.com/watch?v=KHoEbRH46Zk
+   *~10 min — answers "should I use Pandas instead?" before you start wondering*
+
+4. **NumPy vs SciPy** *(SciPy extends NumPy — used in calibration)*
+   https://www.youtube.com/watch?v=l3s-_8uTBVA
+   *~10 min — useful context since SciPy appears in this course's requirements.txt*
 
 ---
 
@@ -211,6 +227,10 @@ Watch **both** — they cover the two methods in this notebook:
 | Jupyter Notebook in 10 Minutes | https://www.youtube.com/watch?v=H9Iu49E6Mxs | NB 02 |
 | Getting Started with Jupyter Notebooks in VS Code | https://www.youtube.com/watch?v=suAkMeWJ1yE | NB 02 |
 | Cómo usar Jupyter Notebook y qué es JupyterLab (Spanish) | https://www.youtube.com/watch?v=CwbMaSkKDZg | NB 02 |
+| What is NumPy and Why? | https://www.youtube.com/watch?v=SqhVpJSHuyI | NB 03 |
+| NumPy for Images | https://www.youtube.com/watch?v=7V909wyeOQY | NB 03 |
+| NumPy vs Pandas | https://www.youtube.com/watch?v=KHoEbRH46Zk | NB 03 |
+| NumPy vs SciPy | https://www.youtube.com/watch?v=l3s-_8uTBVA | NB 03 |
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
