@@ -1,5 +1,7 @@
 # 6D Pose Vision Workshop — Complete Course
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Maurilio97-P/6d-pose-vision-workshop/blob/main/INDEX.ipynb)
+
 A hands-on Jupyter notebook course taking you from basic Python to applying 6D pose estimation in real robotics applications.
 
 ---
