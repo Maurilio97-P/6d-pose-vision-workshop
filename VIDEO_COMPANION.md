@@ -12,7 +12,16 @@ You don't need to take notes while watching — just let it sink in, then crack 
 > No video needed. Just open the notebook and read through it.
 
 ### NB 01 · Environment Setup
-> No video needed — follow the notebook step by step.
+Watch these **before** Section 2 (venv vs conda) — they show Anaconda and conda environments in action, which makes the comparison in the notebook much easier to follow:
+
+1. **Getting started with Anaconda and Python on Windows** *(Anaconda install, environments, Git Bash setup)*
+   https://www.youtube.com/watch?v=4DQGBQMvwZo
+   *~15 min — covers installing Anaconda, creating environments, and why you never develop in `base`*
+
+2. **Set up Conda virtual environment for data science projects** *(Miniconda, create/activate/install workflow)*
+   https://www.youtube.com/watch?v=gVfTT8o9PyQ
+   *~10 min — clean walkthrough of conda create, activate, install, and using environments in VS Code*
+
 > **Only if you want GPU support for DL notebooks later** (optional, skip for now):
 > Search YouTube: *"Easy OpenCV Python Installation with CUDA GPU"*
 
@@ -185,6 +194,8 @@ Watch **both** — they cover the two methods in this notebook:
 
 | Video | URL | Best before |
 |-------|-----|-------------|
+| Getting started with Anaconda and Python on Windows | https://www.youtube.com/watch?v=4DQGBQMvwZo | NB 01 |
+| Set up Conda virtual environment for data science projects | https://www.youtube.com/watch?v=gVfTT8o9PyQ | NB 01 |
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
