@@ -213,11 +213,15 @@ https://www.youtube.com/watch?v=f-Ibri14KMY
 ---
 
 ### NB 20 · EfficientPose
-Watch this — it covers both EfficientPose architecture and why it's better than the 2-step PnP approach:
+Watch **both** — VN10 first (live demo so you know what the output looks like), then the first half of the second video (architecture explanation):
 
-**6D Pose Estimation WITHOUT MARKERS for 3D Object Detection via FoundationPose & EfficientPose**
-https://www.youtube.com/watch?v=mlXs5kIQ5p4
-*~20 min — watch the EfficientPose section specifically (first half of video)*
+1. **3D Object Detection and Pose Estimation with Deep Learning in OpenCV Python** *(EfficientPose live demo)*
+   https://youtu.be/R7zWFy7JmXc?si=8DgbJR4cOZKca24u
+   *~15 min — shows EfficientPose running on a webcam in real time; watch before the notebook*
+
+2. **6D Pose Estimation WITHOUT MARKERS for 3D Object Detection via FoundationPose & EfficientPose** *(architecture)*
+   https://www.youtube.com/watch?v=mlXs5kIQ5p4
+   *~20 min — watch the EfficientPose section specifically (first half of video)*
 
 ---
 
@@ -285,7 +289,7 @@ Watch **both** — they cover the two methods in this notebook:
 | Generate ArUco Markers | https://youtu.be/sg1bVJBjbng?si=E6pw53-D06sHjfrg | NB 12 |
 | ArUco Detection for AR Apps | https://www.youtube.com/watch?v=UlM2bpqo_o0 | NB 13 |
 | Stereo Vision Camera Calibration | https://www.youtube.com/watch?v=yKypaVl6qQo | NB 16–17 |
-| DL for CV: 3D Object Detection | https://youtu.be/R7zWFy7JmXc?si=dc5IrrhyiZrzGSQ4 | NB 18 |
+| DL for CV: 3D Object Detection (EfficientPose live demo) | https://youtu.be/R7zWFy7JmXc?si=8DgbJR4cOZKca24u | NB 18, NB 20 |
 | MediaPipe 3D Object Detection | https://www.youtube.com/watch?v=f-Ibri14KMY | NB 19 |
 | 6D Pose WITHOUT MARKERS (EfficientPose + FoundationPose) | https://www.youtube.com/watch?v=mlXs5kIQ5p4 | NB 20–21 |
 | FreeZe: Zero-shot 6D Pose | https://www.youtube.com/watch?v=Mgmt93kXK_4 | NB 21 |

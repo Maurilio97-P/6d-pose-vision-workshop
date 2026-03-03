@@ -3,7 +3,7 @@
 Source:
 **3D Object Detection and Pose Estimation with Deep Learning in OpenCV Python**
 Transcript reference: 
-
+https://youtu.be/R7zWFy7JmXc?si=8DgbJR4cOZKca24u
 ---
 
 # What Is This Video About?
