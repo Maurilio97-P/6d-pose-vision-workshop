@@ -33,3 +33,6 @@ Thumbs.db
 
 # Claude Code (local AI assistant config — not course content)
 .claude/
+
+# Internal dev notes — audits, plans, session notes (not course content)
+_dev/
