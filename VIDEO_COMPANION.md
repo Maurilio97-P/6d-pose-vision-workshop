@@ -83,8 +83,23 @@ Watch all three **before** the notebook — they give you the concept, the lands
    *~10 min — covers `pip install opencv-python` and the gotcha: you install "opencv-python" but import it as `cv2`*
 
 ### NB 05 · Image Operations
-> No specific video. The notebook is self-contained with runnable examples.
-> If you want a quick overview first, search: *"OpenCV Python crash course"*
+This notebook covers HSV, thresholding, and morphological operations. Watch VN29 and VN31 before the color space section. VN28 and VN30 show where the skills you build here eventually lead:
+
+1. **OpenCV Python HSV Color Space** *(why HSV beats RGB for segmentation)*
+   https://www.youtube.com/watch?v=G3PW5ysKDxc
+   *~15 min — Hue/Saturation/Value intuition, cv.inRange() masking, practical color segmentation*
+
+2. **Detección de color con Python y OpenCV usando HSV** *(Spanish — real-time color detection)*
+   https://youtu.be/aFNDh5k3SjU
+   *~12 min — same HSV concept with a live webcam color tracker demo, in Spanish*
+
+3. **OpenCV Contours in Python** *(where thresholding + morphology lead)*
+   https://youtu.be/LMamYJYnws8
+   *~20 min — findContours, drawContours, bounding rects, moments — the natural next step after binary images*
+
+4. **OpenCV Python Histogram Backprojection** *(advanced HSV masking)*
+   https://www.youtube.com/watch?v=aOHStBqEFlQ
+   *~15 min — using an ROI histogram to find similar regions in a full image; deeper payoff of HSV masking*
 
 ---
 
@@ -248,6 +263,10 @@ Watch **both** — they cover the two methods in this notebook:
 | Image Processing VS Computer Vision | https://www.youtube.com/watch?v=pcxhj5KFI6M | NB 04 |
 | OpenCV Tutorial in 5 Minutes — All Modules Overview | https://www.youtube.com/watch?v=PeMM80WimN4 | NB 04 |
 | How to Install OpenCV for Python | https://youtu.be/M6jukmppMqU | NB 04 |
+| OpenCV Python HSV Color Space | https://www.youtube.com/watch?v=G3PW5ysKDxc | NB 05 |
+| Detección de color con OpenCV usando HSV (Spanish) | https://youtu.be/aFNDh5k3SjU | NB 05 |
+| OpenCV Contours in Python | https://youtu.be/LMamYJYnws8 | NB 05 |
+| OpenCV Python Histogram Backprojection | https://www.youtube.com/watch?v=aOHStBqEFlQ | NB 05 |
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
