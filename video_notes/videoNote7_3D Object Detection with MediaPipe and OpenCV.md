@@ -1,10 +1,3 @@
-LETS GOOOOOOOO 😈🔥
-This one is cool because it’s **real-time 6D pose on CPU with MediaPipe** — very practical.
-
-I’ll structure it clean for **Obsidian**, and I’ll cite your transcript properly.
-
----
-
 # 30+ FPS 3D Object Detection with MediaPipe (CPU-Based 6D Pose)
 
 Source:

@@ -3,7 +3,7 @@
 Source:
 **OpenCV GPU: Installing OpenCV with GPU for Python using VS Code and CUDA**
 Transcript reference: 
-
+https://youtu.be/HsuKxjQhFU0?si=KsmWgrsj5sc5EGVV
 ---
 
 # What Is This Video About?

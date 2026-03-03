@@ -199,6 +199,10 @@ https://www.youtube.com/watch?v=yKypaVl6qQo
 https://youtu.be/R7zWFy7JmXc?si=dc5IrrhyiZrzGSQ4
 *~15 min — gives you context on why DL methods beat classical for generalization*
 
+> **⚙️ GPU setup reminder:** If you plan to run Part 7 locally with an NVIDIA GPU, this is the right moment to set up GPU-accelerated OpenCV. Colab users can skip — T4 GPU is handled automatically.
+> - Full guide (VN8): https://youtu.be/HsuKxjQhFU0
+> - Quick guide (VN32): https://youtu.be/d8Jx6zO1yw0
+
 ---
 
 ### NB 19 · MediaPipe Objectron
