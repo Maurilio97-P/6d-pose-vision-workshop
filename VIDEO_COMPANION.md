@@ -68,8 +68,22 @@ Watch VN21 and VN22 **before** the notebook — they build the mental model (arr
 ## Part 2 — OpenCV Foundations
 
 ### NB 04 · Intro to OpenCV
+Watch all three **before** the notebook — they give you the concept, the landscape, and the setup in the right order:
+
+1. **Image Processing VS Computer Vision: What's The Difference?** *(conceptual framing)*
+   https://www.youtube.com/watch?v=pcxhj5KFI6M
+   *~8 min — clarifies what OpenCV is actually doing: image in → image out (processing) vs image in → information out (vision)*
+
+2. **OpenCV Tutorial in 5 Minutes — All Modules Overview** *(landscape map)*
+   https://www.youtube.com/watch?v=PeMM80WimN4
+   *~5 min — walks through every OpenCV module so you know what exists before diving into any one part*
+
+3. **How to Install OpenCV for Python** *(setup + the cv2 naming quirk)*
+   https://youtu.be/M6jukmppMqU
+   *~10 min — covers `pip install opencv-python` and the gotcha: you install "opencv-python" but import it as `cv2`*
+
 ### NB 05 · Image Operations
-> No specific video for these. The notebooks cover everything from scratch with runnable examples.
+> No specific video. The notebook is self-contained with runnable examples.
 > If you want a quick overview first, search: *"OpenCV Python crash course"*
 
 ---
@@ -231,6 +245,9 @@ Watch **both** — they cover the two methods in this notebook:
 | NumPy for Images | https://www.youtube.com/watch?v=7V909wyeOQY | NB 03 |
 | NumPy vs Pandas | https://www.youtube.com/watch?v=KHoEbRH46Zk | NB 03 |
 | NumPy vs SciPy | https://www.youtube.com/watch?v=l3s-_8uTBVA | NB 03 |
+| Image Processing VS Computer Vision | https://www.youtube.com/watch?v=pcxhj5KFI6M | NB 04 |
+| OpenCV Tutorial in 5 Minutes — All Modules Overview | https://www.youtube.com/watch?v=PeMM80WimN4 | NB 04 |
+| How to Install OpenCV for Python | https://youtu.be/M6jukmppMqU | NB 04 |
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
