@@ -22,8 +22,12 @@ Watch these **before** Section 2 (venv vs conda) — they show Anaconda and cond
    https://www.youtube.com/watch?v=gVfTT8o9PyQ
    *~10 min — clean walkthrough of conda create, activate, install, and using environments in VS Code*
 
-> **Only if you want GPU support for DL notebooks later** (optional, skip for now):
-> Search YouTube: *"Easy OpenCV Python Installation with CUDA GPU"*
+> **Only if you want GPU support for Part 7 (optional — skip now, come back when you reach Part 7):**
+>
+> 1. **Installing OpenCV with GPU for Python using VS Code and CUDA** — full deep-dive (CMake, CUDA flags, build from source)
+>    https://youtu.be/HsuKxjQhFU0
+> 2. **Quick Install OpenCV with GPU (CUDA) Support** — faster walkthrough of the same process
+>    https://youtu.be/d8Jx6zO1yw0
 
 ---
 
@@ -252,6 +256,8 @@ Watch **both** — they cover the two methods in this notebook:
 | Video | URL | Best before |
 |-------|-----|-------------|
 | Getting started with Anaconda and Python on Windows | https://www.youtube.com/watch?v=4DQGBQMvwZo | NB 01 |
+| Installing OpenCV with GPU for Python using VS Code and CUDA | https://youtu.be/HsuKxjQhFU0 | NB 01 (optional GPU) |
+| Quick Install OpenCV with GPU (CUDA) Support | https://youtu.be/d8Jx6zO1yw0 | NB 01 (optional GPU) |
 | Set up Conda virtual environment for data science projects | https://www.youtube.com/watch?v=gVfTT8o9PyQ | NB 01 |
 | Jupyter Notebook in 10 Minutes | https://www.youtube.com/watch?v=H9Iu49E6Mxs | NB 02 |
 | Getting Started with Jupyter Notebooks in VS Code | https://www.youtube.com/watch?v=suAkMeWJ1yE | NB 02 |
