@@ -129,6 +129,11 @@ Watch both — first one is theory context, second is the hands-on code:
    https://www.youtube.com/watch?v=H5qbRTikxI4
    *~20 min — goes deeper into what K, dist coefficients mean*
 
+**Optional (after the notebook):**
+**Camera Calibration with ChArUco Boards (OpenCV)**
+https://youtu.be/EUvco3rjUdQ?si=f92x9E5rnwwZgZtH
+*ChArUco boards = chessboard + ArUco markers — more accurate and robust than plain chessboards. Good to know once you're comfortable with the standard workflow.*
+
 ---
 
 ### NB 08 · Distortion & Undistortion
@@ -291,6 +296,7 @@ Watch **both** — they cover the two methods in this notebook:
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
+| Camera Calibration with ChArUco Boards | https://youtu.be/EUvco3rjUdQ?si=f92x9E5rnwwZgZtH | NB 07 (optional) |
 | OpenCV Pose Estimation for Objects | https://www.youtube.com/watch?v=bs81DNsMrnM | NB 09–10 |
 | ArUco Pose Estimation Real-Time | https://www.youtube.com/watch?v=bS00Vs09Upw | NB 11–15 |
 | Generate ArUco Markers | https://youtu.be/sg1bVJBjbng?si=E6pw53-D06sHjfrg | NB 12 |
