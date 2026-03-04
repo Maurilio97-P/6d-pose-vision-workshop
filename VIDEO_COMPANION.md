@@ -175,8 +175,15 @@ https://www.youtube.com/watch?v=UlM2bpqo_o0
 ---
 
 ### NB 14 · ArUco Pose Estimation
-> The video from NB 11 (`bS00Vs09Upw`) covers this well. Re-watch the pose section if needed.
-> Also search: *"ArUco Marker Pose Estimation in OpenCV"* for a shorter dedicated video.
+Watch VN14 before this notebook — it's a dedicated, focused walkthrough of ArUco pose estimation. The NB 11 video is useful for end-to-end context if you want to re-watch it.
+
+1. **ArUco Marker Pose Estimation in OpenCV** *(dedicated walkthrough)*
+   https://youtu.be/GEWoGDdjlSc?si=HcQ-ULlZQzvc0GC8
+   *Focused on pose estimation specifically — watch this first*
+
+2. **ArUco Marker Pose Estimation and Detection in Real-Time using OpenCV Python** *(same as NB 11)*
+   https://www.youtube.com/watch?v=bS00Vs09Upw
+   *~25 min — re-watch the pose section for the end-to-end picture*
 
 ---
 
@@ -288,6 +295,7 @@ Watch **both** — they cover the two methods in this notebook:
 | ArUco Pose Estimation Real-Time | https://www.youtube.com/watch?v=bS00Vs09Upw | NB 11–15 |
 | Generate ArUco Markers | https://youtu.be/sg1bVJBjbng?si=E6pw53-D06sHjfrg | NB 12 |
 | ArUco Detection for AR Apps | https://www.youtube.com/watch?v=UlM2bpqo_o0 | NB 13 |
+| ArUco Marker Pose Estimation in OpenCV | https://youtu.be/GEWoGDdjlSc?si=HcQ-ULlZQzvc0GC8 | NB 14 |
 | Stereo Vision Camera Calibration | https://www.youtube.com/watch?v=yKypaVl6qQo | NB 16–17 |
 | DL for CV: 3D Object Detection (EfficientPose live demo) | https://youtu.be/R7zWFy7JmXc?si=8DgbJR4cOZKca24u | NB 18, NB 20 |
 | MediaPipe 3D Object Detection | https://www.youtube.com/watch?v=f-Ibri14KMY | NB 19 |

@@ -1,6 +1,7 @@
 # ArUco Marker Pose Estimation in OpenCV
 
 Video: *ArUco Marker Pose Estimation in OpenCV*
+https://youtu.be/GEWoGDdjlSc?si=HcQ-ULlZQzvc0GC8
 
 This builds directly on:
 

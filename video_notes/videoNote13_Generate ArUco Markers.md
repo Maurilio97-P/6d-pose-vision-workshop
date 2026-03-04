@@ -2,7 +2,7 @@
 
 Video:
 **Generate ArUco Markers for Detection and Pose Estimation with OpenCV**
-
+https://youtu.be/sg1bVJBjbng?si=1KkLJrQDqVIRWX3f
 ---
 
 # Big Picture

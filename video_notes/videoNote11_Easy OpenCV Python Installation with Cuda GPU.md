@@ -3,7 +3,7 @@
 Video:
 **Quick and Easy OpenCV Python Installation with CUDA GPU**
 
-Source reference: 
+Source reference: https://youtu.be/d8Jx6zO1yw0?si=O8XERyQfITizMr28
 
 ---
 
