@@ -110,16 +110,20 @@ This notebook covers HSV, thresholding, and morphological operations. Watch VN29
 ## Part 3 — Camera Model
 
 ### NB 06 · Camera Model Theory
-Watch this **before** the notebook. It's the best visual explanation of the pinhole model, intrinsic matrix, and why calibration matters:
+Watch both **before** the notebook — they give you the visual intuition for the pinhole model, intrinsic matrix, and why calibration matters:
 
-**Camera Calibration Explained and SIMPLE Step-by-Step Guide!**
-https://www.youtube.com/watch?v=Wcnb197g2i0
-*~15 min — watch the whole thing, it maps 1:1 with NB 06*
+1. **Camera Calibration Explained and SIMPLE Step-by-Step Guide!**
+   https://www.youtube.com/watch?v=Wcnb197g2i0
+   *~15 min — practical walkthrough, maps 1:1 with NB 06*
 
-**Optional deep theory — Dr. Shree K. Nayar (Columbia University):**
-**Image Formation | Image Sensing | Binary Images** *(playlist)*
+2. **Linear Camera Model | Camera Calibration** *(VN34 — Dr. Shree K. Nayar, Columbia University)*
+   https://youtu.be/qByYk6JggQU?si=Z2uoFb3W1kPyqtbb
+   *~20 min — lecture covering the linear camera model math from first principles*
+
+**Optional — want even more depth:**
+**Image Formation | Image Sensing | Binary Images** *(playlist — Dr. Nayar)*
 https://youtube.com/playlist?list=PL2zRqk16wsdr9X5rgF-d0pkzPdkHZ4KiT
-*Lecture series covering image formation from scratch — very visual, mathematical foundations*
+*Full lecture series covering image formation from scratch — very visual, mathematical foundations*
 
 ---
 
@@ -304,6 +308,7 @@ Watch **both** — they cover the two methods in this notebook:
 | OpenCV Contours in Python | https://youtu.be/LMamYJYnws8 | NB 05 |
 | OpenCV Python Histogram Backprojection | https://www.youtube.com/watch?v=aOHStBqEFlQ | NB 05 |
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
+| Linear Camera Model \| Camera Calibration *(Dr. Nayar — VN34)* | https://youtu.be/qByYk6JggQU?si=Z2uoFb3W1kPyqtbb | NB 06 |
 | Image Formation / Image Sensing / Binary Images *(playlist — Dr. Nayar)* | https://youtube.com/playlist?list=PL2zRqk16wsdr9X5rgF-d0pkzPdkHZ4KiT | NB 06 (optional deep theory) |
 | Camera Calibration / Uncalibrated Stereo *(playlist — Dr. Nayar)* | https://youtube.com/playlist?list=PL2zRqk16wsdoCCLpou-dGo7QQNks1Ppzo | NB 07 (optional deep theory) |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
