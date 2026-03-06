@@ -116,6 +116,11 @@ Watch this **before** the notebook. It's the best visual explanation of the pinh
 https://www.youtube.com/watch?v=Wcnb197g2i0
 *~15 min — watch the whole thing, it maps 1:1 with NB 06*
 
+**Optional deep theory — Dr. Shree K. Nayar (Columbia University):**
+**Image Formation | Image Sensing | Binary Images** *(playlist)*
+https://youtube.com/playlist?list=PL2zRqk16wsdr9X5rgF-d0pkzPdkHZ4KiT
+*Lecture series covering image formation from scratch — very visual, mathematical foundations*
+
 ---
 
 ### NB 07 · Camera Calibration
@@ -130,9 +135,14 @@ Watch both — first one is theory context, second is the hands-on code:
    *~20 min — goes deeper into what K, dist coefficients mean*
 
 **Optional (after the notebook):**
+
 **Camera Calibration with ChArUco Boards (OpenCV)**
 https://youtu.be/EUvco3rjUdQ?si=f92x9E5rnwwZgZtH
 *ChArUco boards = chessboard + ArUco markers — more accurate and robust than plain chessboards. Good to know once you're comfortable with the standard workflow.*
+
+**Camera Calibration | Uncalibrated Stereo** *(playlist — Dr. Shree K. Nayar, Columbia University)*
+https://youtube.com/playlist?list=PL2zRqk16wsdoCCLpou-dGo7QQNks1Ppzo
+*Lecture series covering calibration theory from mathematical first principles — watch at your own pace*
 
 ---
 
@@ -294,6 +304,8 @@ Watch **both** — they cover the two methods in this notebook:
 | OpenCV Contours in Python | https://youtu.be/LMamYJYnws8 | NB 05 |
 | OpenCV Python Histogram Backprojection | https://www.youtube.com/watch?v=aOHStBqEFlQ | NB 05 |
 | Camera Calibration Explained | https://www.youtube.com/watch?v=Wcnb197g2i0 | NB 06 |
+| Image Formation / Image Sensing / Binary Images *(playlist — Dr. Nayar)* | https://youtube.com/playlist?list=PL2zRqk16wsdr9X5rgF-d0pkzPdkHZ4KiT | NB 06 (optional deep theory) |
+| Camera Calibration / Uncalibrated Stereo *(playlist — Dr. Nayar)* | https://youtube.com/playlist?list=PL2zRqk16wsdoCCLpou-dGo7QQNks1Ppzo | NB 07 (optional deep theory) |
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
 | Camera Calibration with ChArUco Boards | https://youtu.be/EUvco3rjUdQ?si=f92x9E5rnwwZgZtH | NB 07 (optional) |
