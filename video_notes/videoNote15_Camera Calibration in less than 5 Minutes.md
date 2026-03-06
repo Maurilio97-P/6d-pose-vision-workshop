@@ -1,4 +1,3 @@
-Broooo got you 😈🔥 — this one is the **fast practical camera calibration workflow** (capture chessboard images → run 
 # Camera Calibration in < 5 Minutes (OpenCV)
 
 Video: **Camera Calibration in less than 5 Minutes with OpenCV**
