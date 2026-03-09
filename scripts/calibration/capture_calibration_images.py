@@ -3,7 +3,27 @@ capture_calibration_images.py
 ------------------------------
 Live webcam script to capture chessboard calibration images.
 
-Usage (run from the repo root):
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment
+    and install the dependencies:
+
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\\Scripts\\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
+Usage (run from the repo root, with venv active):
     python scripts/calibration/capture_calibration_images.py
 
 Optional arguments:
@@ -47,7 +67,7 @@ Practical workflow:
 After capture:
     Run notebook 07 (or cv2.calibrateCamera) pointing at the saved folder.
 
-Requirements: opencv-contrib-python
+Requirements: opencv-contrib-python  (install via pip install -r requirements.txt)
 """
 
 import cv2

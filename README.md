@@ -187,6 +187,11 @@ Each script has a full usage guide in its docstring — run `python scripts/<sub
 ### Quick start: capturing calibration images
 
 ```bash
+# Activate your venv first (required every time you open a new terminal):
+#   Windows:   venv\Scripts\activate
+#   macOS/Linux: source venv/bin/activate
+# Then install deps if you haven't yet:  pip install -r requirements.txt
+
 # From the repo root — opens your webcam immediately
 python scripts/calibration/capture_calibration_images.py
 
