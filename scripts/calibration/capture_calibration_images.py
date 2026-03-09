@@ -3,15 +3,49 @@ capture_calibration_images.py
 ------------------------------
 Live webcam script to capture chessboard calibration images.
 
-Usage:
-    python scripts/capture_calibration_images.py
+Usage (run from the repo root):
+    python scripts/calibration/capture_calibration_images.py
 
-Controls:
-    S   — save current frame (only when chessboard is detected)
-    Q   — quit
+Optional arguments:
+    --save-dir  PATH    folder to save images (default: calibration_images/)
+    --cols      INT     inner corner columns  (default: 9)
+    --rows      INT     inner corner rows     (default: 6)
+    --camera    INT     webcam index          (default: 0)
 
-After capture, run notebook 07 or your own calibrateCamera script
-on the saved images.
+Example — custom board and output folder:
+    python scripts/calibration/capture_calibration_images.py --cols 9 --rows 6 --save-dir my_calib_imgs
+
+How it works, step by step:
+    1. Opens your webcam and shows a live video window titled:
+           Calibration Capture — S=save  Q=quit
+
+    2. Every frame it runs findChessboardCorners on the live feed:
+       - Chessboard detected → draws the colored corner grid overlay + green text:
+             DETECTED  [S=save | count=0]
+       - Not detected → red text:
+             Chessboard not found
+
+    3. You control when to save:
+       - Press S → saves the raw frame (no overlay) as calib_0000.jpg.
+                   Counter increments. Only works when chessboard is detected —
+                   pressing S with no board visible does nothing.
+       - Press Q or Esc → closes the window and exits.
+
+    4. On exit, prints a summary:
+           Done. Captured 15 images to 'calibration_images/'
+       If fewer than 6 images were saved, a warning is printed.
+
+Practical workflow:
+    - Print chessboard_9x6.png and glue it to something flat and rigid
+    - Hold the board in front of the camera
+    - Wait for the green DETECTED overlay
+    - Tilt the board to a new angle → press S
+    - Move closer/further, tilt up/down/left/right — aim for 15+ images
+    - Cover the corners of the frame, not just the center
+    - Take your time — blurry frames will hurt calibration quality
+
+After capture:
+    Run notebook 07 (or cv2.calibrateCamera) pointing at the saved folder.
 
 Requirements: opencv-contrib-python
 """
