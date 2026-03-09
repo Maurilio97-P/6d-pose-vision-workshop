@@ -157,7 +157,19 @@ https://youtube.com/playlist?list=PL2zRqk16wsdoCCLpou-dGo7QQNks1Ppzo
 ---
 
 ### NB 08 · Distortion & Undistortion
-> Same videos as NB 07 cover this. No extra video needed.
+Watch VN36 **before Section 1** — it explains why lenses physically produce distortion (compound lens design, vignetting, chromatic aberration, barrel and tangential distortion) so the math in the notebook has physical context. The NB07 videos (1 & 2 above) already cover the OpenCV undistortion code side.
+
+1. **Lens Related Issues | Image Formation** *(VN36)*
+   https://youtu.be/hzOeqCb2Fg4?si=x0rpAcLTLkfNpT1p
+   *Covers vignetting, chromatic aberration, radial distortion, tangential distortion — and why software can correct them. Maps directly to NB08 Section 1.*
+
+2. **Camera Calibration in less than 5 Minutes with OpenCV** *(same as NB07)*
+   https://www.youtube.com/watch?v=_-BTKiamRTg
+   *~5 min — quick recap of the calibration → dist coefficients workflow*
+
+3. **OpenCV Python Camera Calibration (Intrinsic, Extrinsic, Distortion)** *(same as NB07)*
+   https://www.youtube.com/watch?v=H5qbRTikxI4
+   *~20 min — goes deeper into what K, dist coefficients mean and how undistortion works*
 
 ---
 
@@ -321,6 +333,7 @@ Watch **both** — they cover the two methods in this notebook:
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
 | Camera Calibration with ChArUco Boards | https://youtu.be/EUvco3rjUdQ?si=f92x9E5rnwwZgZtH | NB 07 (optional) |
 | Camera Calibration — Estimating the Projection Matrix *(Dr. Nayar — VN35)* | https://youtu.be/GUbWsXU1mac?si=gEeYXRU7Tkynk-mY | NB 07 (optional deep theory) |
+| Lens Related Issues \| Image Formation *(VN36)* | https://youtu.be/hzOeqCb2Fg4?si=x0rpAcLTLkfNpT1p | NB 08 |
 | OpenCV Pose Estimation for Objects | https://www.youtube.com/watch?v=bs81DNsMrnM | NB 09–10 |
 | ArUco Pose Estimation Real-Time | https://www.youtube.com/watch?v=bS00Vs09Upw | NB 11–15 |
 | Generate ArUco Markers | https://youtu.be/sg1bVJBjbng?si=E6pw53-D06sHjfrg | NB 12 |
