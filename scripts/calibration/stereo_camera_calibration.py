@@ -6,37 +6,77 @@ Reads matching chessboard image pairs from two folders (left/ and right/),
 calibrates each camera individually, runs stereoCalibrate, rectifies,
 builds undistort+rectify maps, and saves everything to stereo_maps.npz.
 
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment:
+
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\Scripts\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
 Usage:
-    python scripts/stereo_camera_calibration.py --left-dir left/ --right-dir right/
-    python scripts/stereo_camera_calibration.py --left-dir images/L --right-dir images/R --cols 9 --rows 6
+    python scripts/calibration/stereo_camera_calibration.py --left-dir left/ --right-dir right/
+    python scripts/calibration/stereo_camera_calibration.py --left-dir images/L --right-dir images/R --cols 9 --rows 6
 
 Image requirements:
-    - Files in left/ and right/ must have matching names or indices
-      (e.g. calib_00.jpg in both folders = same chessboard shot simultaneously)
-    - Minimum 8–10 image pairs at varied angles
-    - Chessboard fully visible in BOTH cameras in every pair
+    - Capture pairs simultaneously: left camera saves calib_00.jpg AND right camera
+      saves calib_00.jpg at the same moment, with identical filenames in each folder.
+    - Minimum 8–10 image pairs at varied chessboard angles and distances.
+    - The chessboard must be fully visible in BOTH cameras in every single pair.
+    - At least 4 valid pairs are required; aim for 15–20 for a good calibration.
 
 Arguments:
-    --left-dir    Folder with left camera images (default: stereo_left)
-    --right-dir   Folder with right camera images (default: stereo_right)
-    --cols        Inner corner columns (default: 9)
-    --rows        Inner corner rows    (default: 6)
-    --square      Square side in METERS (default: 0.025)
-    --out         Output .npz path (default: assets/calibration/stereo_maps.npz)
-    --alpha       Rectification alpha: 0=crop valid, 1=full FOV (default: 0)
+    --left-dir    Folder containing left camera images (default: stereo_left)
+    --right-dir   Folder containing right camera images (default: stereo_right)
+    --cols        Number of inner corner columns on the chessboard (default: 9)
+    --rows        Number of inner corner rows on the chessboard (default: 6)
+    --square      Physical side length of one square in METERS (default: 0.025 = 2.5 cm)
+    --out         Output .npz file path (default: assets/calibration/stereo_maps.npz)
+    --alpha       Rectification crop setting: 0 = crop to valid pixels only (default),
+                  1 = keep full field of view (leaves black borders after rectification)
+
+How it works, step by step:
+    1. Scans both folders and matches image pairs by filename (falls back to
+       positional matching if filenames differ).
+    2. For each pair, runs findChessboardCorners on both images.
+       Pairs where the board is not found in either camera are skipped.
+    3. Calibrates each camera individually with calibrateCamera to get K and dist.
+       Prints RMS reprojection error — a value below 1.0 px is excellent.
+    4. Runs stereoCalibrate (fixing intrinsics) to compute the rotation R and
+       translation T between the two cameras. Prints stereo RMS and baseline distance.
+    5. Runs stereoRectify to compute rectification transforms R1, R2, P1, P2, Q.
+    6. Builds per-pixel remap tables (map1_L, map2_L, map1_R, map2_R) with
+       initUndistortRectifyMap for fast per-frame remapping at runtime.
+    7. Saves everything to the output .npz file.
 
 Output file (stereo_maps.npz) contains:
     map1_L, map2_L, map1_R, map2_R  — remap maps for left/right cameras
     Q                                — 4×4 disparity-to-depth matrix
     K_L, dist_L, K_R, dist_R        — intrinsics
     R, T, R1, R2, P1, P2            — stereo geometry
+    baseline_m                       — camera separation in meters
+    rms_stereo                       — reprojection error at calibration time
 
-Load in your depth app:
-    data = np.load("stereo_maps.npz")
-    left_rect  = cv2.remap(left_raw,  data["map1_L"], data["map2_L"], cv2.INTER_LINEAR)
-    right_rect = cv2.remap(right_raw, data["map1_R"], data["map2_R"], cv2.INTER_LINEAR)
+After running:
+    The .npz file is saved to --out (default: assets/calibration/stereo_maps.npz).
+    Use it with scripts/stereo/stereo_depth_live.py to run real-time depth estimation.
 
-Requirements: opencv-python (or opencv-contrib-python), numpy
+    Load in your own depth app:
+        data = np.load("stereo_maps.npz")
+        left_rect  = cv2.remap(left_raw,  data["map1_L"], data["map2_L"], cv2.INTER_LINEAR)
+        right_rect = cv2.remap(right_raw, data["map1_R"], data["map2_R"], cv2.INTER_LINEAR)
+        Q          = data["Q"]  # disparity-to-depth matrix
 """
 
 import cv2

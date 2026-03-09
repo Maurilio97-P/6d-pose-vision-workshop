@@ -4,21 +4,58 @@ detect_aruco_live.py
 Real-time ArUco marker detection from a webcam feed.
 Draws bounding boxes, corner points, and marker IDs on every frame.
 
-Usage:
-    python scripts/detect_aruco_live.py
-    python scripts/detect_aruco_live.py --dict DICT_5X5_100 --camera 1
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment:
 
-Controls:
-    Q / Esc   quit
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\Scripts\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
+Usage:
+    python scripts/aruco/detect_aruco_live.py
+    python scripts/aruco/detect_aruco_live.py --dict DICT_5X5_100 --camera 1
 
 Arguments:
-    --dict      ArUco dictionary (default: DICT_4X4_50)
-    --camera    Camera index (default: 0)
-    --width     Capture width (default: 1280)
-    --height    Capture height (default: 720)
-    --rejected  Show rejected candidates in red (default: off)
+    --dict      ArUco dictionary to detect (default: DICT_4X4_50).
+                Must match the dictionary used when generating the markers.
+    --camera    Camera index — 0 is the built-in webcam, 1 is the first external
+                USB camera, etc. (default: 0)
+    --width     Requested capture width in pixels (default: 1280)
+    --height    Requested capture height in pixels (default: 720)
+    --rejected  If set, also draw rejected marker candidates in red so you can
+                diagnose detection failures. Off by default.
 
-Requirements: opencv-contrib-python
+How it works, step by step:
+    1. Opens the webcam and sets the requested resolution.
+    2. Builds an ArUco detector for the chosen dictionary, with sub-pixel corner
+       refinement enabled for better accuracy.
+    3. Each frame: converts to grayscale, runs detectMarkers to find all ArUco
+       patterns in the image.
+    4. For every detected marker, draws the four corner points and a colored
+       bounding box, and overlays the marker ID at the center.
+    5. Overlays the current FPS and the count of visible markers in the top-left
+       corner of the window.
+    6. If --rejected is set, draws failed candidates as thin red outlines.
+
+Controls:
+    Q / Esc   quit the live window
+
+After running:
+    No files are saved. The purpose of this script is to verify that your printed
+    markers are detectable and that your dictionary choice is correct before moving
+    on to pose estimation.
 """
 
 import cv2

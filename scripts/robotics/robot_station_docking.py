@@ -10,27 +10,72 @@ an ArUco marker. The script computes:
   - Proportional controller commands (forward, lateral, rotation)
   - Docking state: SEARCHING → ALIGNING → APPROACH → DOCKED
 
-Usage:
-    python scripts/robot_station_docking.py
-    python scripts/robot_station_docking.py --target 1 --calib assets/calibration/camera_calibration.npz
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment:
 
-Controls:
-    Q / Esc       quit
-    0 / 1 / 2     switch target station
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\Scripts\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
+Usage:
+    python scripts/robotics/robot_station_docking.py
+    python scripts/robotics/robot_station_docking.py --target 1 --calib assets/calibration/camera_calibration.npz
 
 Arguments:
-    --calib       Path to .npz calibration file from NB07
-    --target      Initial target station ID (default: 1)
+    --calib       Path to the .npz calibration file produced by NB07.
+                  If omitted, the script looks for
+                  assets/calibration/camera_calibration.npz automatically.
+                  Run NB07 first to generate this file for accurate metric commands.
+    --target      ArUco marker ID of the docking station to approach first (default: 1).
+                  Must be one of the IDs registered in STATIONS (0, 1, or 2).
     --camera      Camera index (default: 0)
-    --width       Capture width (default: 1280)
-    --height      Capture height (default: 720)
+    --width       Requested capture width in pixels (default: 1280)
+    --height      Requested capture height in pixels (default: 720)
 
-Station registry (edit STATIONS below to match your setup):
-    ID 0  Charging Station  — 15cm marker, dock at 30cm
-    ID 1  Conveyor A        — 15cm marker, dock at 25cm
-    ID 2  Conveyor B        — 15cm marker, dock at 25cm
+Station registry (edit STATIONS in the script to match your physical setup):
+    ID 0  Charging Station  — 15 cm marker, dock at 30 cm
+    ID 1  Conveyor A        — 15 cm marker, dock at 25 cm
+    ID 2  Conveyor B        — 15 cm marker, dock at 25 cm
 
-Requirements: opencv-contrib-python, numpy
+How it works, step by step:
+    1. Loads camera intrinsics from the calibration file.
+    2. Builds an ArUco detector (DICT_4X4_50).
+    3. Each frame: detects all ArUco markers and looks for the one with the target ID.
+    4. Runs estimatePoseSingleMarkers to get rvec and tvec for the target marker.
+    5. Extracts lateral offset (X), depth (Z), and heading (yaw angle from rvec).
+    6. A simple proportional controller produces:
+         fwd  — forward/backward speed in m/s
+         lat  — lateral speed in m/s
+         rot  — rotation speed in deg/s
+    7. The docking state transitions:
+         SEARCHING → marker not visible
+         ALIGNING  → marker visible, heading and lateral error being corrected
+         APPROACH  → aligned, moving forward to dock distance
+         DOCKED    → within tolerance on all axes
+    8. Draws a HUD panel at the top showing target station name, distance, lateral,
+       heading, and the controller command on each frame. Values turn green when
+       they are within tolerance.
+
+Controls:
+    Q / Esc       quit the live window
+    0 / 1 / 2     switch the target station (immediately re-targets to that ID)
+
+After running:
+    No files are saved. The fwd/lat/rot values printed in the HUD are the commands
+    you would send to real motor drivers. In a real robot integration, replace the
+    draw_hud output step with calls to your robot's motion API.
 """
 
 import cv2

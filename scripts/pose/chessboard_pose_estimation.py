@@ -5,28 +5,68 @@ Real-time chessboard pose estimation from a webcam.
 Detects a printed chessboard, runs solvePnP to get the 6D pose (rvec, tvec),
 then draws 3D coordinate axes and an optional cube sitting on the board.
 
-Usage:
-    python scripts/chessboard_pose_estimation.py
-    python scripts/chessboard_pose_estimation.py --cols 9 --rows 6 --square 0.025
-    python scripts/chessboard_pose_estimation.py --calib assets/calibration/camera_calibration.npz
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment:
 
-Controls:
-    Q / Esc   quit
-    C         toggle cube overlay on/off
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\Scripts\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
+Usage:
+    python scripts/pose/chessboard_pose_estimation.py
+    python scripts/pose/chessboard_pose_estimation.py --cols 9 --rows 6 --square 0.025
+    python scripts/pose/chessboard_pose_estimation.py --calib assets/calibration/camera_calibration.npz
 
 Arguments:
-    --calib       Path to .npz calibration file from NB07
-    --cols        Inner corner columns (default: 9)
-    --rows        Inner corner rows    (default: 6)
-    --square      Square side length in METERS (default: 0.025 = 2.5 cm)
+    --calib       Path to the .npz calibration file produced by NB07.
+                  If omitted, the script looks for
+                  assets/calibration/camera_calibration.npz automatically.
+                  Run NB07 first to generate this file for accurate metric results.
+    --cols        Number of inner corner columns on the chessboard (default: 9).
+                  This is one less than the number of squares across.
+    --rows        Number of inner corner rows on the chessboard (default: 6).
+                  This is one less than the number of squares down.
+    --square      Physical side length of one square in METERS (default: 0.025 = 2.5 cm).
+                  Measure your printed board with a ruler and set this accurately.
     --camera      Camera index (default: 0)
-    --width       Capture width (default: 1280)
-    --height      Capture height (default: 720)
+    --width       Requested capture width in pixels (default: 1280)
+    --height      Requested capture height in pixels (default: 720)
 
-Tip: Print the chessboard from NB07 (assets/calibration/chessboard_9x6.png).
-     Measure your actual printed square size with a ruler.
+How it works, step by step:
+    1. Loads camera intrinsics (K, dist) from the calibration file.
+    2. Builds the grid of 3D object points based on --cols, --rows, and --square.
+    3. Opens the webcam and starts the main loop.
+    4. Each frame: converts to grayscale and calls findChessboardCorners to search
+       for the inner corner grid of the board.
+    5. When the board is found, refines the corners to sub-pixel accuracy with
+       cornerSubPix, then calls solvePnP to compute the rotation vector (rvec) and
+       translation vector (tvec) that describe the board's 6D pose in camera space.
+    6. Draws color-coded 3D coordinate axes at the board origin:
+       Red = X, Green = Y, Blue = Z (pointing up from the board).
+    7. If the cube overlay is on, projects a 3D wireframe cube sitting on the board.
+    8. Overlays the board-to-camera distance (Z) and lateral offsets (X, Y) in cm.
+    9. If the board is not visible, shows "Hold chessboard in view..." as a prompt.
 
-Requirements: opencv-contrib-python, numpy
+Controls:
+    Q / Esc   quit the live window
+    C         toggle the 3D cube overlay on / off
+
+After running:
+    No files are saved. Use the Z distance readout to verify metric accuracy.
+    For best results: use real calibration data from NB07, mount the board flat on
+    a hard surface, and ensure even lighting without glare on the printed squares.
 """
 
 import cv2

@@ -16,22 +16,74 @@ Fork pockets:
     Right pocket X = +275mm
     Height = -60mm from center marker
 
-Usage:
-    python scripts/forklift_pallet_alignment.py
-    python scripts/forklift_pallet_alignment.py --calib assets/calibration/camera_calibration.npz
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment:
 
-Controls:
-    Q / Esc   quit
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\Scripts\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
+Usage:
+    python scripts/robotics/forklift_pallet_alignment.py
+    python scripts/robotics/forklift_pallet_alignment.py --calib assets/calibration/camera_calibration.npz
 
 Arguments:
-    --calib       Path to .npz calibration file from NB07
+    --calib       Path to the .npz calibration file produced by NB07.
+                  If omitted, the script looks for
+                  assets/calibration/camera_calibration.npz automatically.
+                  Run NB07 first to generate this file for accurate metric commands.
     --camera      Camera index (default: 0)
-    --width       Capture width (default: 1280)
-    --height      Capture height (default: 720)
+    --width       Requested capture width in pixels (default: 1280)
+    --height      Requested capture height in pixels (default: 720)
 
-Edit PALLET_MARKER_IDS and MARKER_POS_IN_PALLET below if your setup differs.
+    To adapt to a different pallet or marker placement, edit the constants
+    PALLET_MARKER_IDS and MARKER_POS_IN_PALLET near the top of the script.
 
-Requirements: opencv-contrib-python, numpy
+How it works, step by step:
+    1. Loads camera intrinsics from the calibration file.
+    2. Builds an ArUco detector (DICT_4X4_50) for markers IDs 10, 11, 12.
+    3. Each frame: detects all ArUco markers and filters for the 3 pallet IDs.
+    4. For each detected pallet marker, runs estimatePoseSingleMarkers to get
+       its individual rvec and tvec.
+    5. Transforms each marker's pose to the pallet center frame (M1 = ID 11) and
+       averages all detected markers' translations and rotations. The rotation matrix
+       is re-orthogonalized via SVD to ensure it stays a valid rotation matrix.
+       Using multiple markers makes the estimate more robust to partial occlusion.
+    6. Projects the left and right fork pocket positions into camera space and then
+       into the image — shown as circles labeled L and R on the live video.
+    7. Computes four alignment errors:
+         lateral  — forklift is left/right of the pallet center
+         height   — forks are too high or too low
+         distance — forklift is too far or too close to the pallet
+         heading  — forklift is angled relative to the pallet face
+    8. A proportional controller produces four motor commands:
+         fwd  — drive forward/backward (m/s)
+         lat  — strafe left/right (m/s)
+         turn — rotate in place (rad/s)
+         lift — raise/lower forks (m/s)
+    9. When all four errors are within tolerance, the HUD shows
+       "FORKS ALIGNED — ADVANCE SLOWLY".
+
+Controls:
+    Q / Esc   quit the live window
+
+After running:
+    No files are saved. The fwd/lat/turn/lift values shown in the HUD are the
+    commands you would send to a real forklift's drive and lift actuators.
+    In a real integration, replace the draw_hud output step with calls to your
+    vehicle's motion control API.
 """
 
 import cv2

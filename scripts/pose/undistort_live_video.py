@@ -8,26 +8,64 @@ with cv2.remap() — 3-5x faster than calling cv2.undistort() every frame.
 Displays raw and undistorted frames side-by-side. Notice how straight
 edges in the real world (walls, doors) become straight in the right pane.
 
-Usage:
-    python scripts/undistort_live_video.py
-    python scripts/undistort_live_video.py --calib assets/calibration/camera_calibration.npz
-    python scripts/undistort_live_video.py --alpha 1   # keep full FOV (black borders)
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment:
 
-Controls:
-    Q / Esc   quit
-    S         toggle side-by-side vs undistorted-only view
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\Scripts\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
+Usage:
+    python scripts/pose/undistort_live_video.py
+    python scripts/pose/undistort_live_video.py --calib assets/calibration/camera_calibration.npz
+    python scripts/pose/undistort_live_video.py --alpha 1   # keep full FOV (black borders)
 
 Arguments:
-    --calib   Path to .npz calibration file from NB07
-    --alpha   0 = crop to valid pixels (default), 1 = keep full FOV
+    --calib   Path to the .npz calibration file produced by NB07.
+              If omitted, the script looks for
+              assets/calibration/camera_calibration.npz automatically.
+              Without a real calibration file a synthetic distortion is used —
+              run NB07 first to generate assets/calibration/camera_calibration.npz.
+    --alpha   Controls how the undistorted image is cropped.
+              0 = crop to only the valid (non-black) pixel region (default).
+              1 = keep the full field of view, which leaves black borders.
     --camera  Camera index (default: 0)
-    --width   Capture width (default: 1280)
-    --height  Capture height (default: 720)
+    --width   Requested capture width in pixels (default: 1280)
+    --height  Requested capture height in pixels (default: 720)
 
-Note: After undistorting, downstream code (ArUco detection, solvePnP) should
-      use K_new (printed at startup) and dist=zeros — distortion is already removed.
+How it works, step by step:
+    1. Loads camera intrinsics (K, dist) from the calibration file.
+    2. Calls getOptimalNewCameraMatrix to compute a new K_new for the undistorted
+       image, then initUndistortRectifyMap to build per-pixel remap tables.
+       This heavy computation runs once at startup.
+    3. Each frame: applies cv2.remap using the precomputed tables — this is very
+       fast and runs at full camera frame rate.
+    4. Labels each pane ("RAW" / "UNDISTORTED") and overlays the current FPS.
+    5. In side-by-side mode the two half-size images are shown next to each other
+       so you can directly compare them. Look at straight edges (door frames, walls)
+       — they should curve in the raw view and be straight in the right pane.
 
-Requirements: opencv-contrib-python, numpy
+Controls:
+    Q / Esc   quit the live window
+    S         toggle between side-by-side view and undistorted-only full-screen view
+
+After running:
+    No files are saved. The corrected K_new matrix is printed to the terminal at
+    startup. If you use undistorted frames in a downstream pipeline (ArUco detection,
+    solvePnP), use K_new as your camera matrix and pass dist=zeros — the distortion
+    has already been removed by remap.
 """
 
 import cv2

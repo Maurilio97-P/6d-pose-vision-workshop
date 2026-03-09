@@ -6,26 +6,62 @@ Detects markers, estimates their 6D pose (rvec, tvec), and draws
 coordinate frame axes (Red=X, Green=Y, Blue=Z) on each detected marker.
 Overlays distance and lateral offset for each marker.
 
-Usage:
-    python scripts/aruco_pose_estimation_live.py
-    python scripts/aruco_pose_estimation_live.py --calib assets/calibration/camera_calibration.npz
-    python scripts/aruco_pose_estimation_live.py --marker-length 0.15 --dict DICT_5X5_100
+Before you run — set up your environment:
+    If you haven't already, create and activate a virtual environment:
 
-Controls:
-    Q / Esc   quit
+    # 1. Create the venv (only once, from the repo root):
+    python -m venv venv
+
+    # 2. Activate it (every time you open a new terminal):
+    #    Windows:
+    venv\Scripts\activate
+    #    macOS / Linux:
+    source venv/bin/activate
+
+    # 3. Install dependencies (only once, after activating):
+    pip install -r requirements.txt
+
+    You should see (venv) at the start of your terminal prompt.
+    If you don't, the venv is not active and the script will fail with
+    "ModuleNotFoundError: No module named 'cv2'".
+
+Usage:
+    python scripts/aruco/aruco_pose_estimation_live.py
+    python scripts/aruco/aruco_pose_estimation_live.py --calib assets/calibration/camera_calibration.npz
+    python scripts/aruco/aruco_pose_estimation_live.py --marker-length 0.15 --dict DICT_5X5_100
 
 Arguments:
-    --calib          Path to .npz calibration file from NB07 (default: auto-detect)
-    --marker-length  Real-world marker side in METERS (default: 0.10 = 10 cm)
-    --dict           ArUco dictionary (default: DICT_4X4_50)
+    --calib          Path to the .npz calibration file produced by NB07.
+                     If omitted, the script looks for
+                     assets/calibration/camera_calibration.npz automatically.
+                     Without a real calibration file the pose numbers will not be
+                     physically accurate (a built-in fallback K is used instead).
+    --marker-length  Physical side length of the printed marker in METERS.
+                     Measure with a ruler after printing. (default: 0.10 = 10 cm)
+    --dict           ArUco dictionary (default: DICT_4X4_50).
+                     Must match the dictionary used when generating the markers.
     --camera         Camera index (default: 0)
-    --width          Capture width (default: 1280)
-    --height         Capture height (default: 720)
+    --width          Requested capture width in pixels (default: 1280)
+    --height         Requested capture height in pixels (default: 720)
 
-Tip: Run NB07 first to generate your calibration file.
-     Measure your printed marker's physical size accurately.
+How it works, step by step:
+    1. Loads camera intrinsics (K, dist) from the calibration file, or falls back
+       to a rough default if the file is not found.
+    2. Opens the webcam, sets resolution, and builds the ArUco detector.
+    3. Each frame: detects markers, then calls estimatePoseSingleMarkers to get a
+       rotation vector (rvec) and translation vector (tvec) for each marker.
+    4. Draws 3D coordinate axes on each marker: Red = X, Green = Y, Blue = Z.
+    5. Overlays text showing the marker ID, distance (depth in cm), and lateral /
+       vertical offsets (X, Y) in cm.
+    6. Shows FPS and total marker count in the top-left corner.
 
-Requirements: opencv-contrib-python, numpy
+Controls:
+    Q / Esc   quit the live window
+
+After running:
+    No files are saved. Use the distance and offset readouts on screen to verify
+    that your calibration is accurate and that marker-length is set correctly.
+    Accurate calibration data from NB07 is required for reliable metric distances.
 """
 
 import cv2
