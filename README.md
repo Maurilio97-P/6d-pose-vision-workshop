@@ -184,29 +184,7 @@ scripts/
 
 Each script has a full usage guide in its docstring — run `python scripts/<subfolder>/<name>.py --help`.
 
-### Quick start: capturing calibration images
-
-```bash
-# Activate your venv first (required every time you open a new terminal):
-#   Windows:   venv\Scripts\activate
-#   macOS/Linux: source venv/bin/activate
-# Then install deps if you haven't yet:  pip install -r requirements.txt
-
-# From the repo root — opens your webcam immediately
-python scripts/calibration/capture_calibration_images.py
-
-# Custom board or camera index
-python scripts/calibration/capture_calibration_images.py --cols 9 --rows 6 --camera 0 --save-dir my_calib_imgs
-```
-
-**While running:**
-- Hold your printed chessboard in front of the camera
-- Green overlay + `DETECTED` = chessboard found → press **S** to save that frame
-- Red text = not found → adjust angle or lighting
-- Repeat at different angles, distances, and positions — aim for **15+ images**
-- Press **Q** or **Esc** to quit
-
-Saved frames go to `calibration_images/` (or your `--save-dir`). Then open NB07 and point `calibrateCamera` at that folder.
+For step-by-step instructions on running each script (environment setup, commands, controls, workflow) see **[SCRIPTS_COMPANION.md](SCRIPTS_COMPANION.md)**.
 
 ---
 
