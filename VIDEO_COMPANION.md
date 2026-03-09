@@ -144,6 +144,12 @@ Watch both — first one is theory context, second is the hands-on code:
 https://youtu.be/EUvco3rjUdQ?si=f92x9E5rnwwZgZtH
 *ChArUco boards = chessboard + ArUco markers — more accurate and robust than plain chessboards. Good to know once you're comfortable with the standard workflow.*
 
+**Optional — want to understand what cv2.calibrateCamera does under the hood:**
+
+**Camera Calibration — Estimating the Projection Matrix** *(VN35 — Dr. Shree K. Nayar, Columbia University)*
+https://youtu.be/GUbWsXU1mac?si=gEeYXRU7Tkynk-mY
+*Covers the DLT math: 3D-2D correspondences → matrix A → eigenvalue problem → P = K[R|t]*
+
 **Camera Calibration | Uncalibrated Stereo** *(playlist — Dr. Shree K. Nayar, Columbia University)*
 https://youtube.com/playlist?list=PL2zRqk16wsdoCCLpou-dGo7QQNks1Ppzo
 *Lecture series covering calibration theory from mathematical first principles — watch at your own pace*
@@ -314,6 +320,7 @@ Watch **both** — they cover the two methods in this notebook:
 | Camera Calibration in < 5 min | https://www.youtube.com/watch?v=_-BTKiamRTg | NB 07 |
 | OpenCV Camera Calibration (deep dive) | https://www.youtube.com/watch?v=H5qbRTikxI4 | NB 07–08 |
 | Camera Calibration with ChArUco Boards | https://youtu.be/EUvco3rjUdQ?si=f92x9E5rnwwZgZtH | NB 07 (optional) |
+| Camera Calibration — Estimating the Projection Matrix *(Dr. Nayar — VN35)* | https://youtu.be/GUbWsXU1mac?si=gEeYXRU7Tkynk-mY | NB 07 (optional deep theory) |
 | OpenCV Pose Estimation for Objects | https://www.youtube.com/watch?v=bs81DNsMrnM | NB 09–10 |
 | ArUco Pose Estimation Real-Time | https://www.youtube.com/watch?v=bS00Vs09Upw | NB 11–15 |
 | Generate ArUco Markers | https://youtu.be/sg1bVJBjbng?si=E6pw53-D06sHjfrg | NB 12 |
