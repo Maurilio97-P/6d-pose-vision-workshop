@@ -168,20 +168,21 @@ assets/
 
 The `scripts/` folder contains ready-to-run Python scripts extracted from the notebooks. Use these with a real camera — no Jupyter needed.
 
-| Script | Notebook | What it does |
-|---|---|---|
-| `capture_calibration_images.py` | NB07 | Webcam capture for calibration images |
-| `generate_aruco_markers.py` | NB12 | Batch-generate printable ArUco PNGs |
-| `detect_aruco_live.py` | NB13 | Real-time ArUco detection |
-| `aruco_pose_estimation_live.py` | NB14 | Real-time ArUco 6D pose + axes overlay |
-| `undistort_live_video.py` | NB08 | Real-time lens undistortion |
-| `chessboard_pose_estimation.py` | NB10 | Chessboard → solvePnP → 3D cube overlay |
-| `robot_station_docking.py` | NB15 | ArUco docking state machine + P-controller |
-| `forklift_pallet_alignment.py` | NB24 | Multi-marker pallet pose → fork alignment |
-| `stereo_camera_calibration.py` | NB17 | Full stereo calibration → saves remap maps |
-| `stereo_depth_live.py` | NB17 | Real-time stereo depth from two cameras |
+```
+scripts/
+    calibration/   capture_calibration_images.py   — webcam capture for calibration images (NB07)
+                   stereo_camera_calibration.py     — full stereo calibration pipeline (NB17)
+    aruco/         generate_aruco_markers.py        — batch-generate printable ArUco PNGs (NB12)
+                   detect_aruco_live.py             — real-time ArUco detection (NB13)
+                   aruco_pose_estimation_live.py    — real-time ArUco 6D pose + axes overlay (NB14)
+    pose/          undistort_live_video.py          — real-time lens undistortion via remap (NB08)
+                   chessboard_pose_estimation.py    — chessboard → solvePnP → 3D cube overlay (NB10)
+    stereo/        stereo_depth_live.py             — real-time stereo depth from two cameras (NB17)
+    robotics/      robot_station_docking.py         — ArUco docking state machine + P-controller (NB15)
+                   forklift_pallet_alignment.py     — multi-marker pallet pose + 4-axis fork control (NB24)
+```
 
-Each script has a full usage guide in its docstring — run `python scripts/<name>.py --help`.
+Each script has a full usage guide in its docstring — run `python scripts/<subfolder>/<name>.py --help`.
 
 ---
 
