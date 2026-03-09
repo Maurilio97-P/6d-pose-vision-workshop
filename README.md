@@ -164,6 +164,27 @@ assets/
 
 ---
 
+## Standalone Scripts
+
+The `scripts/` folder contains ready-to-run Python scripts extracted from the notebooks. Use these with a real camera — no Jupyter needed.
+
+| Script | Notebook | What it does |
+|---|---|---|
+| `capture_calibration_images.py` | NB07 | Webcam capture for calibration images |
+| `generate_aruco_markers.py` | NB12 | Batch-generate printable ArUco PNGs |
+| `detect_aruco_live.py` | NB13 | Real-time ArUco detection |
+| `aruco_pose_estimation_live.py` | NB14 | Real-time ArUco 6D pose + axes overlay |
+| `undistort_live_video.py` | NB08 | Real-time lens undistortion |
+| `chessboard_pose_estimation.py` | NB10 | Chessboard → solvePnP → 3D cube overlay |
+| `robot_station_docking.py` | NB15 | ArUco docking state machine + P-controller |
+| `forklift_pallet_alignment.py` | NB24 | Multi-marker pallet pose → fork alignment |
+| `stereo_camera_calibration.py` | NB17 | Full stereo calibration → saves remap maps |
+| `stereo_depth_live.py` | NB17 | Real-time stereo depth from two cameras |
+
+Each script has a full usage guide in its docstring — run `python scripts/<name>.py --help`.
+
+---
+
 ## Grounded in Real Video Notes
 
 This course is built on 35 curated video notes covering real implementations. Each notebook has recommended videos to watch first — see **[VIDEO_COMPANION.md](VIDEO_COMPANION.md)** for the full list with links.
